@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTodos } from '../useTodos';
 import { TodoHeader } from '../../ui/TodoHeader';
 import { TodoCounter } from '../../ui/TodoCounter';
@@ -17,7 +17,8 @@ import { ChangeAlert } from '../../ui/ChangeAlert';
 function HomePage() {
   const navigate = useNavigate();
   const { state, stateUpdaters } = useTodos();
-  
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchParam = searchParams.get('search') || '';
 
   const {
     error,
@@ -28,6 +29,23 @@ function HomePage() {
     //openModal,
     searchValue,
   } = state;
+
+  React.useEffect(() => {
+    if (searchParam !== searchValue) {
+      setSearchValue(searchParam);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParam]);
+
+  const updateSearchValue = (value) => {
+    if (value) {
+      setSearchParams({ search: value });
+    } else {
+      setSearchParams({});
+    }
+    setSearchValue(value);
+  };
+
 
   const {
     //setOpenModal,
@@ -47,7 +65,7 @@ function HomePage() {
         />
         <TodoSearch
           searchValue={searchValue}
-          setSearchValue={setSearchValue}
+          setSearchValue={updateSearchValue}
         />
       </TodoHeader>
 
