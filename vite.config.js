@@ -8,4 +8,5 @@ export default defineConfig({
     react(),
     svgr(), // habilita el uso de ?react
   ],
+  base: '/to-do-machine/', // 👈 importante para GitHub Pages
 })
