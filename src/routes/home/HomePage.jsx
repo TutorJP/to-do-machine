@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTodos } from '../useTodos';
 import { TodoHeader } from '../../ui/TodoHeader';
@@ -27,7 +27,7 @@ function HomePage() {
     searchValue,
   } = state;
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (searchParam !== searchValue) {
       setSearchValue(searchParam);
     }
@@ -52,7 +52,7 @@ function HomePage() {
   } = stateUpdaters;
   
   return (
-    <React.Fragment>
+    <>
       <TodoHeader loading={loading}>
         <TodoCounter
           totalTodos={totalTodos}
@@ -96,7 +96,7 @@ function HomePage() {
       <ChangeAlert
         sincronize={sincronizeTodos}
       />
-    </React.Fragment>
+    </>
   );
 }
 
