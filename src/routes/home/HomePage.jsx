@@ -9,9 +9,7 @@ import { TodoItem } from '../../ui/TodoItem';
 import { TodosError } from '../../ui/TodosError';
 import { TodosLoading } from '../../ui/TodosLoading';
 import { EmptyTodos } from '../../ui/EmptyTodos';
-import { TodoForm } from '../../ui/TodoForm';
 import { CreateTodoButton } from '../../ui/CreateTodoButton';
-import { Modal } from '../../ui/Modal';
 import { ChangeAlert } from '../../ui/ChangeAlert';
 
 function HomePage() {
@@ -26,7 +24,6 @@ function HomePage() {
     searchedTodos,
     totalTodos,
     completedTodos,
-    //openModal,
     searchValue,
   } = state;
 
@@ -48,8 +45,6 @@ function HomePage() {
 
 
   const {
-    //setOpenModal,
-    //addTodo,
     completeTodo,
     deleteTodo,
     setSearchValue,
@@ -94,18 +89,8 @@ function HomePage() {
         )}
       </TodoList>
 
-      {/* {!!openModal && (
-        <Modal>
-          <TodoForm
-            addTodo={addTodo}
-            setOpenModal={setOpenModal}
-          />
-        </Modal>
-      )} */}
-
       <CreateTodoButton
         onClick={()=>navigate('/new')}
-        // setOpenModal={setOpenModal}
       />
 
       <ChangeAlert
