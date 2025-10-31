@@ -1,4 +1,3 @@
-import React from 'react';
 import { CompleteIcon } from '../TodoIcon/CompleteIcon';
 import { EditIcon } from '../TodoIcon/EditIcon';
 import { DeleteIcon } from '../TodoIcon/DeleteIcon';
