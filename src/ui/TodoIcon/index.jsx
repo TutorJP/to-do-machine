@@ -1,4 +1,3 @@
-import React from 'react';
 import CheckSVG from './check.svg?react';
 import EditSVG from './edit.svg?react';
 import DeleteSVG from './delete.svg?react';
